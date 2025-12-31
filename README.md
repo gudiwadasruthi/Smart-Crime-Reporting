@@ -1,9 +1,9 @@
-# 🚨 Smart Crime Reporting System
-
-_Report Crimes Anonymously • Share Evidence • Enable Faster Response_
-
 <p align="center">
   <img src="assets/banner/smart-crime-banner.png" width="100%" alt="Smart Crime Reporting System Banner"/>
+</p>
+<h1 align="center">🚨 Smart Crime Reporting System</h1>
+<p align="center">
+Report Crimes Anonymously • Share Evidence • Enable Faster Response
 </p>
 <p align="center">
   <img src="https://img.shields.io/badge/Frontend-HTML%20%7C%20CSS%20%7C%20JavaScript-blue"/>
