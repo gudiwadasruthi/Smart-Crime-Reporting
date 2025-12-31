@@ -14,6 +14,18 @@ Report Crimes Anonymously • Share Evidence • Enable Faster Response
 </p>
 <p align="center">A web-based platform that empowers citizens to report crimes safely and anonymously using modern web technologies.</p>
 
+## 🌐 Live Demo
+
+🔗 **Deployed Application:**  
+👉 https://smart-crime-reporting.onrender.com
+
+> ⚠️ Note:  
+> - Media uploads are stored temporarily (Render free tier limitation)  
+> - Camera & location access require HTTPS (already enabled)  
+> - Data may reset on redeployment
+
+Feel free to explore the application by submitting a test report or triggering the SOS feature.
+
 ## 📌 Table of Contents
 - [About the Project](#-about-the-project)
 - [Objectives](#-objectives)
@@ -229,12 +241,40 @@ Smart-Crime-Reporting-System/
 - Designing for real-world social impact
 
 ## 🔮 Future Enhancements
-- User accounts for report tracking
-- Real-time notifications
-- Police/admin dashboard
-- Cloud database integration
-- Mobile application version
-- AI-based crime pattern analysis
+
+Although the current system provides core crime reporting functionality, the following enhancements can significantly improve its real-world applicability:
+
+- **User Accounts & Report Tracking**
+  - Optional user registration to track submitted reports
+  - Status updates (Submitted, Under Review, Action Taken)
+
+- **Admin / Authority Dashboard**
+  - Secure login for police or authorities
+  - View, filter, and manage crime reports
+  - Download uploaded evidence securely
+
+- **Cloud Storage Integration**
+  - Store evidence using cloud services (AWS S3, Firebase Storage)
+  - Improve scalability and long-term data persistence
+
+- **Real-Time Alerts & Notifications**
+  - Email/SMS alerts to authorities on critical reports
+  - Push notifications for SOS events
+
+- **Location Mapping & Heatmaps**
+  - Visualize crime-prone areas using maps
+  - Identify hotspots for preventive action
+
+- **Mobile Application**
+  - Android/iOS version for faster reporting
+  - Offline reporting with auto-sync
+
+- **AI-Assisted Analysis**
+  - Automatic crime categorization
+  - Pattern detection for repeated incidents
+
+These enhancements can transform the system from an academic prototype into a production-ready public safety platform.
+
 
 ## 📜 License
 MIT
