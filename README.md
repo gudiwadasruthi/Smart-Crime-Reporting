@@ -36,6 +36,7 @@ Feel free to explore the application by submitting a test report or triggering t
 - [Tech Stack](#-tech-stack)
 - [Project Structure](#-project-structure)
 - [Setup & Installation](#-setup--installation)
+- [Deployment Setup](#-deployment-setup)
 - [Usage Guide](#-usage-guide)
 - [Security & Privacy](#-security--privacy)
 - [Challenges & Learnings](#-challenges--learnings)
@@ -218,6 +219,60 @@ Smart-Crime-Reporting-System/
    ```
 4. Open the application
    - Open `index.html` in your browser
+
+## 🚀 Deployment Setup
+
+The Smart Crime Reporting System is deployed as a **Node.js web service** using **Render**, providing HTTPS access required for camera and location features.
+
+### 🌐 Hosting Platform
+- **Platform:** Render
+- **Service Type:** Web Service
+- **Environment:** Node.js
+- **Deployment Mode:** Continuous deployment from GitHub
+
+### 🔧 Deployment Configuration
+- **Build Command:**
+  ```bash
+  npm install
+  ```
+- **Start Command:**
+  ```bash
+  npm start
+  ```
+
+**Port Handling:**
+
+The backend server dynamically binds to `process.env.PORT` (Render requirement).
+
+### 📁 File Storage Strategy
+
+The application stores uploaded media and reports using the local file system.
+
+On the Render free tier, storage is ephemeral, meaning:
+- Uploaded files may reset on redeploys or restarts
+- Suitable for academic/demo purposes
+
+Note: Persistent disks are available on paid Render plans and can be enabled for long-term data retention.
+
+### 🔐 HTTPS & Browser Permissions
+
+Render provides HTTPS by default.
+
+Required for:
+- Camera access
+- Microphone access
+- Geolocation services
+
+### 🔗 Live Deployment URL
+
+👉 https://smart-crime-reporting.onrender.com
+
+The deployed version supports:
+- Anonymous crime reporting
+- Media capture & uploads
+- Emergency SOS with live location
+
+This setup demonstrates real-world deployment readiness while keeping the system lightweight and cost-effective.
 
 ## 🚀 Usage Guide
 - Open the application
