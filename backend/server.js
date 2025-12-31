@@ -5,11 +5,15 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
+const projectRootDir = path.join(__dirname, '..');
+
+const dataDir = process.env.DATA_DIR || projectRootDir;
 
 // Create directories to store uploaded files and reports
-const uploadsDir = path.join(__dirname, '..', 'uploads');
-const reportsDir = path.join(__dirname, '..', 'reports');
+const uploadsDir = path.join(dataDir, 'uploads');
+const reportsDir = path.join(dataDir, 'reports');
 if (!fs.existsSync(uploadsDir)) {
     fs.mkdirSync(uploadsDir, { recursive: true });
 }
@@ -44,8 +48,15 @@ app.use('/uploads', express.static(uploadsDir));
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS');
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(204);
+    }
     next();
 });
+
+// Serve frontend static files
+app.use(express.static(projectRootDir));
 
 // Endpoint to handle file uploads and report data
 app.post('/upload', upload.fields([
@@ -66,8 +77,10 @@ app.post('/upload', upload.fields([
             timestamp: req.body.timestamp
         };
 
-        const photoURLs = photos.map(photo => `http://localhost:${port}/uploads/${photo.filename}`);
-        const videoURL = video ? `http://localhost:${port}/uploads/${video.filename}` : null;
+        const baseUrl = `${req.protocol}://${req.get('host')}`;
+
+        const photoURLs = photos.map(photo => `${baseUrl}/uploads/${photo.filename}`);
+        const videoURL = video ? `${baseUrl}/uploads/${video.filename}` : null;
 
         // Save the report data to a JSON file
         const reportId = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
@@ -109,5 +122,5 @@ app.post('/sos', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
+    console.log(`Server running on port ${port}`);
 });

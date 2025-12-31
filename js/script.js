@@ -210,7 +210,7 @@ document.getElementById('crime-report-form')?.addEventListener('submit', async (
 
     try {
         console.log('Submitting crime report to backend...');
-        const response = await fetch('http://localhost:3000/upload', {
+        const response = await fetch('/upload', {
             method: 'POST',
             body: formData
         });
@@ -252,7 +252,7 @@ document.getElementById('sos-btn')?.addEventListener('click', async () => {
 
                 try {
                     // Send SOS data to the backend
-                    const response = await fetch('http://localhost:3000/sos', {
+                    const response = await fetch('/sos', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
