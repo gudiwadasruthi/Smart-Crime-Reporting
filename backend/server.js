@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 
 const projectRootDir = path.join(__dirname, '..');
 
-const dataDir = process.env.DATA_DIR || projectRootDir;
+const dataDir = process.env.DATA_DIR ? process.env.DATA_DIR : path.join(projectRootDir, 'data');
 
 // Create directories to store uploaded files and reports
 const uploadsDir = path.join(dataDir, 'uploads');
