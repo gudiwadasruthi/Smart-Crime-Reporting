@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Crime Reporting</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Smart Crime Reporting</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="report.html">Report a Crime</a>
+            <a href="emergency.html">Emergency</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+    <main>
+        <h2 style="text-align: center; margin-bottom: 2rem;">Report a Crime</h2>
+        <form id="crime-report-form">
+            <label>Crime Type:</label>
+            <input type="text" name="crime-type" required>
+            <label>Description:</label>
+            <textarea name="description" required></textarea>
+            <label>Location (Auto-detected):</label>
+            <input type="text" name="location" id="location" readonly>
+            <input type="hidden" name="latitude" id="latitude">
+            <input type="hidden" name="longitude" id="longitude">
+            <label>Capture Evidence:</label>
+            <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                <button type="button" id="capture-photo-btn">Take Picture</button>
+                <button type="button" id="record-video-btn">Record Video</button>
+            </div>
+            <div id="camera-preview" style="display: none;">
+                <video id="video" autoplay muted></video>
+                <button type="button" id="snap-btn" style="display: none;">Capture Photo</button>
+                <button type="button" id="start-record-btn" style="display: none;">Start Recording</button>
+                <button type="button" id="stop-record-btn" style="display: none;">Stop Recording</button>
+            </div>
+            <canvas id="canvas" style="display: none;"></canvas>
+            <div id="photo-previews">
+                <h3>Captured Photos:</h3>
+                <div id="photo-list"></div>
+            </div>
+            <div id="video-preview" style="display: none;">
+                <h3>Recorded Video:</h3>
+                <video id="recorded-video" controls></video>
+            </div>
+            <button type="submit" class="report-btn">Report</button>
+        </form>
+    </main>
+    <footer>
+        <p>© 2025 Smart Crime Reporting</p>
+    </footer>
+    <script defer src="js/script.js"></script>
+</body>
+</html>
